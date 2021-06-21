@@ -1,0 +1,31 @@
+package com.example.main.model;
+
+import javax.annotation.PreDestroy;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+//Bean Class
+@Component
+public class Coder {
+
+	// for injection dependencies
+	@Autowired
+	Pet pet ;
+
+	public Coder() {
+		System.out.println("Coder Obj Created");
+	}
+
+	public void petInfo() {
+		pet.info();
+	}
+	
+	@PreDestroy
+	public void destroy() {
+		System.out.println("Coder Object Destroyed");
+	}
+	
+	
+	
+}

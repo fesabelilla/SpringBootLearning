@@ -63,7 +63,7 @@ public class Software {
 		//bofore destroy it will bw called
 		@PreDestroy
 		public void destroy() {
-			System.out.println("Coder class destroy");
+			System.out.println("Software class destroy");
 		}
 		
 		

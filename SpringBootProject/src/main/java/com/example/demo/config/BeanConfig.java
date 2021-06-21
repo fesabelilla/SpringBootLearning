@@ -9,7 +9,10 @@ import com.example.demo.model.Computer;
 
 @Configuration
 public class BeanConfig {
+	/*
 	
+	/// Setter Injection
+	 
 	@Bean
 	public Coder coder1(@Qualifier("computer1") Computer computer) {
 		Coder c1 = new Coder();
@@ -47,6 +50,22 @@ public class BeanConfig {
 		com2.setBrand("HP");
 		
 		return com2;
+	}
+	
+	*/
+	
+	//// Constructor Injection
+	
+	@Bean
+	public Coder coder1(@Qualifier("computer1") Computer computer) {
+		Coder c1 = new Coder(1001,"Zahid","Java",computer);
+		return c1;
+	}
+	
+	@Bean
+	public Computer computer1(){
+		Computer com1 = new Computer("ASUS");
+		return com1;
 	}
 	
 	

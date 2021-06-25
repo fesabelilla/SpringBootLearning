@@ -22,6 +22,7 @@ public class AutowiredAnnotationApplication {
 	
 	
 	Coder coder2 = context.getBean(Coder.class);
+	//coder2.name = "Karim";
 	System.out.println(coder2.name);
 	
 	}

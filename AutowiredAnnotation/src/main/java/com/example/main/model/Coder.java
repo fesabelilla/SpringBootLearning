@@ -3,12 +3,14 @@ package com.example.main.model;
 import javax.annotation.PreDestroy;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.sun.beans.introspect.PropertyInfo.Name;
+//import com.sun.beans.introspect.PropertyInfo.Name;
 
 //Bean Class
 @Component
+@Scope(value = "prototype")
 public class Coder {
 	
 	public String name;

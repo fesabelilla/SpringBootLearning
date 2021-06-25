@@ -5,9 +5,13 @@ import javax.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.sun.beans.introspect.PropertyInfo.Name;
+
 //Bean Class
 @Component
 public class Coder {
+	
+	public String name;
 
 	// for injection dependencies
 	@Autowired

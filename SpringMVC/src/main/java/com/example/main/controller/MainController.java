@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller 
 public class MainController {
@@ -15,15 +16,23 @@ public class MainController {
 	}
 	
 	@RequestMapping("/addProgrammer")
-	public String addProgrammer(@RequestParam int pID, @RequestParam String pName,
-			@RequestParam String pLang, Model model ) {
+	
+	//public String addProgrammer(@RequestParam int pID, @RequestParam String pName,
+		//	@RequestParam String pLang, Model model )
+	
+	public ModelAndView addProgrammer(@RequestParam("pID") int id, @RequestParam("pName") String name,
+		@RequestParam("pLang") String language, Model model ) {
 		
-		//System.out.println(pID+" "+pName+" "+pLang);
-		model.addAttribute("pID",pID);
-		model.addAttribute("pName",pName);
-		model.addAttribute("pLang",pLang);
+		ModelAndView modelAndView = new ModelAndView();
 		
-		return "ProgrammerInfo.html";
+		modelAndView.setViewName("ProgrammerInfo.html");
+		
+		modelAndView.addObject("pName",name);
+		modelAndView.addObject("pID",id);
+		modelAndView.addObject("pLang", language);
+		
+		return modelAndView;
+		
 	}
 	
 }

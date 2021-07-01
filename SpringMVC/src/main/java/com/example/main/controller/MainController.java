@@ -4,8 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,12 +24,16 @@ public class MainController {
 	}
 	
 	
-	@RequestMapping("/home")
+	//@RequestMapping("/home")
+	@GetMapping("/home")
 	public String homeString() {
 		return "Home.html";
 	}
 	
-	@RequestMapping("/addProgrammer")
+	
+	//@RequestMapping(value = "/addProgrammer", method = RequestMethod.POST)
+	
+	@PostMapping("/addProgrammer")
 	public String addProgrammer(@ModelAttribute Programmer programmer ) {
 		
 		//ModelAndView modelAndView = new ModelAndView();

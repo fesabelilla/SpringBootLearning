@@ -1,5 +1,8 @@
 package com.example.main.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.main.Model.Programmer;
+
 
 @Controller 
 @ControllerAdvice
@@ -40,7 +44,18 @@ public class MainController {
 		//modelAndView.setViewName("ProgrammerInfo.html");
 		
 		return "ProgrammerInfo.html";
-		
 	}
 	
+	@GetMapping("/allProgrammer")
+	public String allProgrammer(Model m) {
+		List<Programmer> p = new ArrayList<Programmer>();
+		
+		p.add(new Programmer(101, "Karim","Java"));
+		p.add(new Programmer(102, "Hasan","C++"));
+		p.add(new Programmer(103, "Sayeed","C"));
+		
+		m.addAttribute("programmers",p);
+		
+		return "AllProgrammer.html";
+	}
 }

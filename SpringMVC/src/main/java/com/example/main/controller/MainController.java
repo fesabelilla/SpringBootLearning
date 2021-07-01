@@ -18,14 +18,13 @@ public class MainController {
 		return "Home.html";
 	}
 	
-	
 	@RequestMapping("/addProgrammer")
-	public ModelAndView addProgrammer(@ModelAttribute Programmer programmer ) {
-		ModelAndView modelAndView = new ModelAndView();
+	public String addProgrammer(@ModelAttribute Programmer programmer ) {
 		
-		modelAndView.setViewName("ProgrammerInfo.html");
+		//ModelAndView modelAndView = new ModelAndView();
+		//modelAndView.setViewName("ProgrammerInfo.html");
 		
-		return modelAndView;
+		return "ProgrammerInfo.html";
 		
 	}
 	

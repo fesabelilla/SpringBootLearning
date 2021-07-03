@@ -11,7 +11,7 @@
 	<h2 th:text="${msg}"></h2>
 	
 	<form action="addProgrammer" method="post">
-	
+		<h2>Insert</h2>
 		<h3>Enter Programmer Name</h3>
 		<input type = "text" name="pName"></input>
 		<h3>Enter Programmer Language</h3>
@@ -24,6 +24,7 @@
 	<hr />
 	
 	<form action="findById" method="post">
+		<h2>Search By ID</h2>
 		<h3>Enter Programmer's Id</h3>
 		<input type="text" name="pID"></input>
 	
@@ -34,6 +35,7 @@
 	
 	<hr />
 	<form action="findBypLang" method="post">
+		<h2>Search By Language</h2>
 		<h3>Enter Programmer's Language</h3>
 		<input type="text" name="pLang"></input>
 	
@@ -43,6 +45,7 @@
 	
 	
 	<form action="deleteProgrammer" method="GET">
+		<h2>Delete</h2>
 		<h3>Enter Programmer's Id</h3>
 		<input type="text" name="pID"></input>
 	
@@ -51,6 +54,7 @@
 	
 	<hr />
 	<form action="updateProgrammer" method="post">
+		<h2>Update</h2>
 		<h3>Enter Programmer ID</h3>
 		<input type= "text" name="pID"></input>
 		<h3>Enter Programmer Name</h3>

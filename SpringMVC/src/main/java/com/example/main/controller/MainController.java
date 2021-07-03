@@ -53,7 +53,7 @@ public class MainController {
 	
 	@PostMapping("/findBypLang")
 	public String findBypLang(@RequestParam String pLang, Model model) {
-		List<Programmer> p = pr.findBypLang(pLang);
+		List<Programmer> p = pr.findP(pLang);
 		
 		model.addAttribute("programmers",p);
 		

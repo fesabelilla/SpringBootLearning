@@ -26,39 +26,29 @@ public class MainController {
 	
 	@Autowired
 	ProgrammerRepo pr;
-
-	@ModelAttribute
-	public void welcome(Model m) {
-		m.addAttribute("msg","Welcome to Spring Boot Project");
-	}
 	
-	
-	//@RequestMapping("/home")
 	@GetMapping("/home")
 	public String homeString() {
 		return "Home.html";
 	}
 	
-	
-	//@RequestMapping(value = "/addProgrammer", method = RequestMethod.POST)
-	
 	@PostMapping("/addProgrammer")
 	public String addProgrammer(@ModelAttribute Programmer programmer ) {
 		
 		pr.save(programmer);
+		
+		return "redirect:/home";
+	}
+	
+	@PostMapping("/findById")
+	public String findById(@RequestParam int pID, Model model) {
+		Programmer p = pr.getOne(pID);
+		
+		model.addAttribute("programmer",p);
+		
 		return "ProgrammerInfo.html";
 	}
 	
-	@GetMapping("/allProgrammer")
-	public String allProgrammer(Model m) {
-		List<Programmer> p = new ArrayList<Programmer>();
-		
-		p.add(new Programmer(101, "Karim","Java"));
-		p.add(new Programmer(102, "Hasan","C++"));
-		p.add(new Programmer(103, "Sayeed","C"));
-		
-		m.addAttribute("programmers",p);
-		
-		return "AllProgrammer.html";    
-	}
+	
+	
 }

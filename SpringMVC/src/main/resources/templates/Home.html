@@ -11,12 +11,26 @@
 	<h2 th:text="${msg}"></h2>
 	
 	<form action="addProgrammer" method="post">
+	
 		<h3>Enter Programmer Name</h3>
 		<input type = "text" name="pName"></input>
 		<h3>Enter Programmer Language</h3>
 		<input type = "text" name="pLang"></input>
 		
 		<button type = "submit">Add Programmer</button>
+		
 	</form>
+	
+	<hr />
+	
+	<form action="findById" method="post">
+		<h3>Enter Programmer's Id</h3>
+		<input type="text" name="pID"></input>
+	
+		<button type="submit">Find By Id</button>
+	</form>
+	
+	
+	
 </body>
 </html>

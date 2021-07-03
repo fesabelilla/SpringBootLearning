@@ -3,6 +3,7 @@ package com.example.main.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,11 +17,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.main.Model.Programmer;
+import com.example.main.repository.ProgrammerRepo;
 
 
 @Controller 
 @ControllerAdvice
 public class MainController {
+	
+	@Autowired
+	ProgrammerRepo pr;
 
 	@ModelAttribute
 	public void welcome(Model m) {
@@ -40,9 +45,7 @@ public class MainController {
 	@PostMapping("/addProgrammer")
 	public String addProgrammer(@ModelAttribute Programmer programmer ) {
 		
-		//ModelAndView modelAndView = new ModelAndView();
-		//modelAndView.setViewName("ProgrammerInfo.html");
-		
+		pr.save(programmer);
 		return "ProgrammerInfo.html";
 	}
 	
@@ -56,6 +59,6 @@ public class MainController {
 		
 		m.addAttribute("programmers",p);
 		
-		return "AllProgrammer.html";
+		return "AllProgrammer.html";    
 	}
 }

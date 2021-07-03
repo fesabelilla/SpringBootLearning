@@ -49,6 +49,13 @@ public class MainController {
 		return "ProgrammerInfo.html";
 	}
 	
+	@GetMapping("/deleteProgrammer")
+	public String deleteProgrammer(@RequestParam int pID,Model model) {
+		pr.deleteById(pID);
+		
+		return "redirect:/home";
+	}
+	
 	
 	
 }

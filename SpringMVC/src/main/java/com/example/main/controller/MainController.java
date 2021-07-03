@@ -51,6 +51,16 @@ public class MainController {
 		return "ProgrammerInfo.html";
 	}
 	
+	@PostMapping("/findBypLang")
+	public String findBypLang(@RequestParam String pLang, Model model) {
+		List<Programmer> p = pr.findBypLang(pLang);
+		
+		model.addAttribute("programmers",p);
+		
+		return "AllProgrammer.html";
+	}
+	
+	
 	@GetMapping("/deleteProgrammer")
 	public String deleteProgrammer(@RequestParam int pID,Model model) {
 		pr.deleteById(pID);

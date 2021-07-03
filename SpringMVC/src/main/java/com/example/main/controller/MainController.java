@@ -56,6 +56,19 @@ public class MainController {
 		return "redirect:/home";
 	}
 	
+	@PostMapping("/updateProgrammer")
+	public String updateProgrammer(@ModelAttribute Programmer programmer) {
+		
+		Programmer p = pr.getOne(programmer.getpID());
+		
+		p.setpName(programmer.getpName());
+		p.setpLang(programmer.getpLang());
+		
+		pr.save(p);
+		
+		return "ProgrammerInfo.html";
+	}
+	
 	
 	
 }
